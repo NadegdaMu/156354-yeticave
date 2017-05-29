@@ -21,7 +21,7 @@ if (isset($_POST["send"])) {
         }
     }
 
-    if (!filter_var($form_item["email"], FILTER_VALIDATE_EMAIL)){
+    if (isset($form_item["email"]) && !filter_var($form_item["email"], FILTER_VALIDATE_EMAIL)){
         $error["email"] = "Введенный email не соответствует формату email";
         unset($form_item["email"]);
     }

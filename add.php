@@ -28,10 +28,10 @@ if (isset($_POST["send"])) {
     }
 
     foreach ($expectedNumericFields as $key) {
-        if (!empty($_POST[$key]) && is_numeric($_POST[$key])) {
+        if (!empty($_POST[$key]) && is_numeric($_POST[$key] && $_POST[$key]>0)) {
             $lot_item[$key] = $_POST[$key];
         } else if (empty($error[$key])) {
-            $error[$key] = "Здесь может быть только число";
+            $error[$key] = "Только положительное число";
         }
     }
 

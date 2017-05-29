@@ -1,24 +1,24 @@
 <form class="form container <?php if ($error):?>form--invalid<?php endif; ?>" action="/registration.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
     <h2>Регистрация нового аккаунта</h2>
-    <div class="form__item <?php printInvalidItemClass($error, 'email'); ?>"> <!-- form__item--invalid -->
+    <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'email')); ?>"> <!-- form__item--invalid -->
         <label for="email">E-mail*</label>
-        <input id="email" type="text" name="email" placeholder="Введите e-mail" value="<?php printInputItemValue($form_item, 'email');?>">
-        <span class="form__error"><?php if (isset($error["email"])) {print($error["email"]); } ?></span>
+        <input id="email" type="text" name="email" placeholder="Введите e-mail" value="<?php htmlspecialchars(printInputItemValue($form_item, 'email'));?>">
+        <span class="form__error"><?php if (isset($error["email"])) {print(htmlspecialchars($error["email"])); } ?></span>
     </div>
-    <div class="form__item <?php printInvalidItemClass($error, 'password'); ?>">
+    <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'password')); ?>">
         <label for="password">Пароль*</label>
         <input id="password" type="text" name="password" placeholder="Введите пароль">
-        <span class="form__error"><?php if (isset($error["password"])) {print($error["password"]); } ?></span>
+        <span class="form__error"><?php if (isset($error["password"])) {print(htmlspecialchars($error["password"])); } ?></span>
     </div>
-    <div class="form__item <?php printInvalidItemClass($error, 'name'); ?>">
+    <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'name')); ?>">
         <label for="name">Имя*</label>
-        <input id="name" type="text" name="name" placeholder="Введите имя" value="<?php printInputItemValue($form_item, 'name');?>">
-        <span class="form__error"><?php if (isset($error["name"])) {print($error["name"]); } ?></span>
+        <input id="name" type="text" name="name" placeholder="Введите имя" value="<?php htmlspecialchars(printInputItemValue($form_item, 'name'));?>">
+        <span class="form__error"><?php if (isset($error["name"])) {print(htmlspecialchars($error["name"])); } ?></span>
     </div>
-    <div class="form__item <?php printInvalidItemClass($error, 'contacts'); ?>">
+    <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'contacts')); ?>">
         <label for="contacts">Контактные данные*</label>
-        <textarea id="contacts" name="contacts" placeholder="Напишите как с вами связаться"><?php printInputItemValue($form_item, 'contacts');?></textarea>
-        <span class="form__error"><?php if (isset($error["contacts"])) {print($error["contacts"]); } ?></span>
+        <textarea id="contacts" name="contacts" placeholder="Напишите как с вами связаться"><?php htmlspecialchars(printInputItemValue($form_item, 'contacts'));?></textarea>
+        <span class="form__error"><?php if (isset($error["contacts"])) {print(htmlspecialchars($error["contacts"])); } ?></span>
     </div>
     <div class="form__item form__item--file form__item--last">
         <label>Изображение</label>

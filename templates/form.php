@@ -4,30 +4,30 @@
 <form class="form form--add-lot container <?php if ($error):?>form--invalid<?php endif; ?>" action="/add.php" method="post" enctype="multipart/form-data"> <!-- form--invalid -->
     <h2>Добавление лота</h2>
     <div class="form__container-two">
-        <div class="form__item <?php printInvalidItemClass($error, 'name'); ?>">
+        <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'name')); ?>">
             <label for="lot-name">Наименование</label>
-            <input id="lot-name" type="text" name="name" placeholder="Введите наименование лота" value="<?php printInputItemValue($lot_item, 'name');?>">
-            <span class="form__error"><?php if (isset($error["name"])) {print($error["name"]); } ?></span>
+            <input id="lot-name" type="text" name="name" placeholder="Введите наименование лота" value="<?php htmlspecialchars(printInputItemValue($lot_item, 'name'));?>">
+            <span class="form__error"><?php if (isset($error["name"])) {print(htmlspecialchars($error["name"])); } ?></span>
         </div>
-        <div class="form__item <?php printInvalidItemClass($error, 'category_id'); ?>">
+        <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'category_id')); ?>">
             <label for="category">Категория</label>
             <select id="category" name="category_id">
                 <option value="">Выберите категорию</option>
                 <?php foreach ($categories_equipment as $value) {
                     if (isset($lot_item['category_id']) && $lot_item['category_id']==$value->id) {
-                        echo "<option value=\"".$value->id."\" selected>".$value->name."</option>";
+                        echo "<option value=\"".htmlspecialchars($value->id)."\" selected>".htmlspecialchars($value->name)."</option>";
                     } else {
-                        echo "<option value=\"".$value->id."\">".$value->name."</option>";
+                        echo "<option value=\"".htmlspecialchars($value->id)."\">".htmlspecialchars($value->name)."</option>";
                     }
                 } ?>
             </select>
-            <span class="form__error"><?php if (isset($error["category_id"])) {print($error["category_id"]); } ?></span>
+            <span class="form__error"><?php if (isset($error["category_id"])) {print(htmlspecialchars($error["category_id"])); } ?></span>
         </div>
     </div>
-    <div class="form__item form__item--wide <?php printInvalidItemClass($error, 'description'); ?>">
+    <div class="form__item form__item--wide <?php htmlspecialchars(printInvalidItemClass($error, 'description')); ?>">
         <label for="message">Описание</label>
-        <textarea id="message" name="description" placeholder="Напишите описание лота" ><?php printInputItemValue($lot_item, 'description');?></textarea>
-        <span class="form__error"><?php if (isset($error["description"])) {print($error["description"]); } ?></span>
+        <textarea id="message" name="description" placeholder="Напишите описание лота" ><?php htmlspecialchars(printInputItemValue($lot_item, 'description'));?></textarea>
+        <span class="form__error"><?php if (isset($error["description"])) {print(htmlspecialchars($error["description"])); } ?></span>
     </div>
     <div class="form__item form__item--file"> <!-- form__item--uploaded -->
         <label>Изображение</label>
@@ -45,20 +45,20 @@
         </div>
     </div>
     <div class="form__container-three">
-        <div class="form__item form__item--small <?php printInvalidItemClass($error, 'start_price'); ?>">
+        <div class="form__item form__item--small <?php htmlspecialchars(printInvalidItemClass($error, 'start_price')); ?>">
             <label for="price">Начальная цена</label>
-            <input id="price" type="number" name="start_price" placeholder="0" value="<?php printInputItemValue($lot_item, 'start_price');?>">
-            <span class="form__error"><?php if (isset($error["start_price"])) {print($error["start_price"]); } ?></span>
+            <input id="price" type="number" name="start_price" placeholder="0" value="<?php htmlspecialchars(printInputItemValue($lot_item, 'start_price'));?>">
+            <span class="form__error"><?php if (isset($error["start_price"])) {print(htmlspecialchars($error["start_price"])); } ?></span>
         </div>
-        <div class="form__item form__item--small <?php printInvalidItemClass($error, 'step'); ?>">
+        <div class="form__item form__item--small <?php htmlspecialchars(printInvalidItemClass($error, 'step')); ?>">
             <label for="lot-step">Шаг ставки</label>
-            <input id="lot-step" type="number" name="step" placeholder="0" value="<?php printInputItemValue($lot_item, 'step');?>">
-            <span class="form__error"><?php if (isset($error["step"])) {print($error["step"]); } ?></span>
+            <input id="lot-step" type="number" name="step" placeholder="0" value="<?php htmlspecialchars(printInputItemValue($lot_item, 'step'));?>">
+            <span class="form__error"><?php if (isset($error["step"])) {print(htmlspecialchars($error["step"])); } ?></span>
         </div>
-        <div class="form__item <?php printInvalidItemClass($error, 'end_date'); ?>">
+        <div class="form__item <?php htmlspecialchars(printInvalidItemClass($error, 'end_date')); ?>">
             <label for="lot-date">Дата заверщения</label>
-            <input class="form__input-date" id="lot-date" type="text" name="end_date" placeholder="20.05.2017" value="<?php printInputItemValue($lot_item, 'end_date');?>">
-            <span class="form__error"><?php if (isset($error["end_date"])) {print($error["end_date"]); } ?></span>
+            <input class="form__input-date" id="lot-date" type="text" name="end_date" placeholder="20.05.2017" value="<?php htmlspecialchars(printInputItemValue($lot_item, 'end_date'));?>">
+            <span class="form__error"><?php if (isset($error["end_date"])) {print(htmlspecialchars($error["end_date"])); } ?></span>
         </div>
     </div>
     <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span>

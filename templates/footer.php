@@ -7,7 +7,7 @@
         <ul class="nav__list container">
             <?php foreach ($categories_equipment as $value):?>
                 <li class="nav__item">
-                    <a href="/index.php?id=<?=$value->id?>"><?=$value->name?></a>
+                    <a href="/index.php?id=<?=htmlspecialchars($value->id)?>"><?=htmlspecialchars($value->name)?></a>
                 </li>
             <?php endforeach;?>
         </ul>
